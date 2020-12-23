@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems";
 import { Button } from './Button';
-import './Navbar.css'
+import './Navbar.css';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 
 class Navbar extends Component{
     state = { clicked: false }
@@ -19,15 +20,15 @@ class Navbar extends Component{
 
 
                 </div>
-
                 <ul className = {this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
-                            <li key = { index }> <a className = { item.cName } href = { item.url }> { item.title } </a> </li>
+                            //<li key = { index }> <a className = { item.cName } href = { item.url }> { item.title } </a> </li>
+                                <li key = {index}><Link to={item.url} className = {item.cName}>{item.title}</Link></li>
                         )
                     })}
                 </ul>
-                <Button>View Map</Button>
+                <Button><Link to="/map.html">View Map</Link></Button>
             </nav>
         )
     }

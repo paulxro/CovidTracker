@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '',
         cName: 'nav-links'
     },
     {
@@ -21,7 +21,7 @@ export const MenuItems = [
     },
     {
         title: 'View Map',
-        url: '#',
+        url: '/map.html',
         cName: 'nav-links-mobile'
     }
 ]

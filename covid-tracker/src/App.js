@@ -1,12 +1,17 @@
 import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
+import Map from './components/Map/Map';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-    </div>
+      <Switch>
+        <Route path = "/map.html" exact component = {Map}/>
+      </Switch>
+    </Router>
   );
 }
 
