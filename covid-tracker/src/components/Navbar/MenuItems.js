@@ -21,7 +21,7 @@ export const MenuItems = [
     },
     {
         title: 'View Map',
-        url: '/map.html',
+        url: 'map',
         cName: 'nav-links-mobile'
     }
 ]

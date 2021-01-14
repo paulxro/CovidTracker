@@ -1,5 +1,5 @@
 :root {
-    --primary: #3acbf7
+    --primary:#f7750a;
 
 }
 
@@ -12,11 +12,16 @@
 
 }
 
+.btn a {
+    text-decoration: none;
+
+}
+
 .btn:hover{
     padding: 8px 20px;
     transition: all 0.3s ease-out;
     background-color: #fff;
-    color: #6568f4;
+    color: #ff8800;
     transition: 250ms;
 
 }

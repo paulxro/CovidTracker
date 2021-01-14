@@ -1,0 +1,17 @@
+.footer-main{
+    background-color: rgb(211, 206, 206);
+    height: 10vh;
+    padding: 1vh 0;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
