@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {MapContainer, GeoJSON} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './CovidMap.css';
-import {features} from '../../data/countries.json';
+import SideDisplay from './SideDisplay/SideDisplay';
 
 const CovidMap = ({ countries }) => {
+
+    const [currentCountry, setCurrentCountry] = useState(null);
+
     const mapStyle = {
         fillColor: "white",
         weight: 1,
@@ -14,19 +17,32 @@ const CovidMap = ({ countries }) => {
 
     const onEachCountry = (country, layer) => {
         layer.options.fillColor = country.properties.color;
-        const name = country.properties.ADMIN;
-        const confirmedText = country.properties.confirmedText;
-        layer.bindPopup(`${name} ${confirmedText}`);
+        //layer.bindPopup(`${name} ${confirmedText}`);
+        layer.on('click', function () {
+            setCurrentCountry(country);
+            layer.options.fillColor = country.properties.hoverColor;
+        });
     };
 
     return (
-        <MapContainer style={{height: "85vh"}} zoom = {2} center = {[20, 100]}>
-            <GeoJSON 
-            style={mapStyle} 
-            data={countries} 
-            onEachFeature={onEachCountry}
-            />
-        </MapContainer>
+        <div>
+            <MapContainer style={{height: "85vh"}} zoom = {2} center = {[20, 100]}>
+                <GeoJSON 
+                    style={mapStyle} 
+                    data={countries} 
+                    onEachFeature={onEachCountry}
+                />
+            </MapContainer>
+            {currentCountry !== null ?(
+                <SideDisplay 
+                    country = {currentCountry}
+                />
+            ) : (
+                <div></div>
+            )}
+            
+        </div>
+
     );
 }
  

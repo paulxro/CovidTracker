@@ -1,6 +1,7 @@
 import {features} from '../data/countries.json';
 import papa from "papaparse";
 import legendItems from '../entities/LegendItems';
+import convert from 'color-convert';
 
 class LoadCountriesTask{
     dataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv';
@@ -28,7 +29,11 @@ class LoadCountriesTask{
 
             if(covidCountry != null){
                 const confirmed = Number(covidCountry.Confirmed);
+                const deaths = Number(covidCountry.Deaths);
+                const recovered = Number(covidCountry.Recovered);
                 mapCountry.properties.confirmed = confirmed;
+                mapCountry.properties.deaths = deaths;
+                mapCountry.properties.recovered = recovered;
                 mapCountry.properties.confirmedText = this.#formatNumberWithCommas(confirmed);
             }
 
@@ -46,6 +51,9 @@ class LoadCountriesTask{
 
         if(legendItem != null){
             mapCountry.properties.color = legendItem.color;
+            // const currentCountryHSV = convert.hex.hsv(mapCountry.properties.color);
+            // mapCountry.properties.hoverColor = convert.hsv.hex(currentCountryHSV[0], currentCountryHSV[1], currentCountryHSV[2] -= 20)
+            mapCountry.properties.hoverColor = "#fffff";
         }
     };
 

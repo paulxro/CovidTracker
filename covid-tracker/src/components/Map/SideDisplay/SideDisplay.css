@@ -1,0 +1,21 @@
+.sideDisplay-main{
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    display: grid;
+}
+
+.sideDisplay-toggle{
+    justify-content: right;
+    align-items: right;
+    float: right;
+    float: top;
+}
+
+.fa-bars {
+    color: black;
+}
+
+.fa-times {
+    color: black;
+}
