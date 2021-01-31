@@ -1,7 +1,6 @@
 import {features} from '../data/countries.json';
 import papa from "papaparse";
 import legendItems from '../entities/LegendItems';
-import convert from 'color-convert';
 
 class LoadCountriesTask{
     dataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv';
@@ -27,14 +26,18 @@ class LoadCountriesTask{
             mapCountry.properties.confirmed = 0;
             mapCountry.properties.confirmedText = "0";
 
-            if(covidCountry != null){
+            
+
+            if(covidCountry != null && covidCountry.Confirmed !== 0){
                 const confirmed = Number(covidCountry.Confirmed);
                 const deaths = Number(covidCountry.Deaths);
                 const recovered = Number(covidCountry.Recovered);
+                const infectionRate = Math.floor(parseFloat(covidCountry.Incident_Rate));
                 mapCountry.properties.confirmed = confirmed;
                 mapCountry.properties.deaths = deaths;
                 mapCountry.properties.recovered = recovered;
                 mapCountry.properties.confirmedText = this.#formatNumberWithCommas(confirmed);
+                mapCountry.properties.infectionRate = infectionRate;
             }
 
             this.#setCountryColor(mapCountry);

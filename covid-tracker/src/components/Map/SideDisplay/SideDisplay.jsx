@@ -3,12 +3,16 @@ import './SideDisplay.css';
 
 const SideDisplay = ({country}) => {
 
+    const [currentCountry, setCountry] = useState(country);
     const [menuVisibility, setMenuVisibility] = useState(true);
 
     const handleClick = () => {
-        setMenuVisibility(!menuVisibility);
+        setCountry(null);
+        setMenuVisibility(false);
     }
 
+    console.log(country)
+    
     return ( 
         <div>
             <div className = "sideDisplay-main">
@@ -32,9 +36,8 @@ const SideDisplay = ({country}) => {
                     <div></div>
                 )}
                 <div className = "sideDisplay-toggle">
-                    <div onClick={handleClick}>
-                        <h2>Display more info</h2>
-                        <i className = {menuVisibility ? 'fas fa-times' : 'fas fa-bars'}></i>
+                    <div>
+                        <i className = {menuVisibility ? 'fas fa-times' : undefined}  onClick={handleClick}></i>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ const Legend = ({legendItems}) => {
             alignItems: "center", 
             justifyContent: "center",
             color: item.textColor,
-            height: "10vh",
+            height: "8vh",
             fontWeight: "bolder",
             fontSize: "1.5em",
 

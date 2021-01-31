@@ -1,6 +1,6 @@
 .NavbarItems{
-    background: linear-gradient(90deg, #FF8C00, 10%, #9E2B25 100%);
-    height: 80px;
+    background: rgb(38, 38, 51);
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,8 @@
 }
 
 .nav-links:hover{
-    background: #ffbb00;
+    background: rgb(230, 221, 221);
+    color: black;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -81,7 +82,7 @@
     }
 
     .nav-menu.active{
-        background: #983628;
+        background: #2c233a;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -96,7 +97,7 @@
     }
 
     .nav-links:hover{
-        background-color: #ffc400;
+        background-color: #c4c4c4;
         border-radius: 0;
     }
 
@@ -130,15 +131,15 @@
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
-        background: #f7750a;
+        background: #ffffff;
         text-decoration: none;
-        color: #fff;
+        color: black;
         font-size: 1.5rem;
     }
 
     .nav-links-mobile:hover {
-        background: #fff;
-        color: #ff8800;
+        background: rgb(167, 165, 165);
+        color: black;
         transition: 250ms;
     }
 

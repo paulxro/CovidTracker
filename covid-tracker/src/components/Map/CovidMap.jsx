@@ -33,7 +33,7 @@ const CovidMap = ({ countries }) => {
                     onEachFeature={onEachCountry}
                 />
             </MapContainer>
-            {currentCountry !== null ?(
+            {currentCountry !== null ? (
                 <SideDisplay 
                     country = {currentCountry}
                 />

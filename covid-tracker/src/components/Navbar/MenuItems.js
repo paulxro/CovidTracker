@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title: 'Database',
-        url: '#',
+        url: 'database',
         cName: 'nav-links'
     },
     {
