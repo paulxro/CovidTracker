@@ -7,37 +7,48 @@ const SideDisplay = ({country}) => {
     const [menuVisibility, setMenuVisibility] = useState(true);
 
     const handleClick = () => {
-        setCountry(null);
-        setMenuVisibility(false);
+        setCountry(country);
+        setMenuVisibility(!menuVisibility);
     }
 
-    console.log(country)
+    if(country !== null && !menuVisibility && currentCountry !== country){
+        setMenuVisibility(!menuVisibility);
+    }
+
+    function numberWithCommas(x) {
+        try{
+            x = x.toString();
+        } catch {
+            return x;
+        }
+        
+        var pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(x))
+            x = x.replace(pattern, "$1, $2");
+        return x;
+    }
+
+
     
     return ( 
-        <div>
-            <div className = "sideDisplay-main">
-                
-                {menuVisibility ? (
-                    <div>
-                        <h1>Country Info</h1>
-                        {!country.properties.deaths ? (
-                            <h1>WARNING: Information about this region is limited, and may be partially or entirely incorrect.</h1>
-                        ) : (
-                            <div></div>
-                        )}
-                        <h2>Country Name: {country.properties.ADMIN}</h2>
-                        <h2>Country ISO_A3: {country.properties.ISO_A3}</h2>
-                        <h2>Country Confirmed Cases: {country.properties.confirmed}</h2>
-                        <h2>Country Deaths: {country.properties.deaths}</h2>
-                        <h2>Country Recovered: {country.properties.recovered}</h2>
-                    </div>
-                    
-                ) : (
-                    <div></div>
-                )}
+        <div className>
+            <div className = {menuVisibility ? "sideDisplay-main active" : "sideDisplay-main"}>
+                <div>
+                    <h1>Country Info</h1>
+                    {!country.properties.deaths ? (
+                        <h1>WARNING: Information about this region is limited, and may be partially or entirely incorrect.</h1>
+                    ) : (
+                        <div></div>
+                    )}
+                    <h2>Country Name: {country.properties.ADMIN}</h2>
+                    <h2>Country Code: {country.properties.ISO_A3}</h2>
+                    <h2>Country Confirmed Cases: {numberWithCommas(country.properties.confirmed)}</h2>
+                    <h2>Country Deaths: {numberWithCommas(country.properties.deaths)}</h2>
+                    <h2>Country Recovered: {numberWithCommas(country.properties.recovered)}</h2>
+                </div>
                 <div className = "sideDisplay-toggle">
                     <div>
-                        <i className = {menuVisibility ? 'fas fa-times' : undefined}  onClick={handleClick}></i>
+                        <i className = {menuVisibility ? "fas fa-times active" : "fas fa-times"}  onClick={handleClick}></i>
                     </div>
                 </div>
             </div>

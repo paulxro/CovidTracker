@@ -1,21 +1,42 @@
 .sideDisplay-main{
-    justify-content: center;
-    align-items: center;
-    background-color: lightgrey;
-    display: grid;
+    background-color: rgb(255, 255, 255);
+    padding: 1vh;
+    top: 10%;
+    left: 100%;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    text-decoration: none;
+    position: fixed;
+    border: 4px solid  rgb(38, 38, 51);
+    border-radius: 20px;
+    min-width: 800px;
+}
+
+
+.sideDisplay-main.active{
+    left: 80%;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+    position: fixed;
+    min-width: 500px;
 }
 
 .sideDisplay-toggle{
-    justify-content: right;
-    align-items: right;
-    float: right;
-    float: top;
+    position: fixed;
+    left: 98%;
+    top: 12%;
+    transition: all 0.5s ease;
 }
 
-.fa-bars {
+.fa-times{
+    position: fixed;
+    transition: all 0.5s ease;
     color: black;
+    left: 120%;
 }
 
-.fa-times {
-    color: black;
+.fa-times.active{
+    transition: all 0.5s ease;
+    left: 98%;
 }

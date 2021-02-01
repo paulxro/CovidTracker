@@ -13,6 +13,11 @@ const Database = () => {
         loadCountriesTask.load(setCountries);
     };
 
+    const toTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
     useEffect(load, []);
 
     const renderTable = (country, index) => {
@@ -53,6 +58,10 @@ const Database = () => {
                 </tbody>
             </table>
             <h5>Note: Only countries with complete data are included in the above table</h5>
+            <div className = "top-button">
+                <h5 onClick = {toTop} className = "top-button-text">Back To Top</h5>
+            </div>
+            
         </div>
     );
 }

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 import video from './data/globeBackground.mp4';
+import image from './data/prompt.svg';
 
 const Home = () => {
-    const prompt = document.querySelectorAll(".prompt-main path");
 
     let history = useHistory();
 
@@ -12,9 +12,15 @@ const Home = () => {
         history.push('/map');
     }
 
-    for(let i = 0; i < prompt.length; i++){
-        console.log(`Letter ${i} is ${prompt[i].getTotalLength()}`);
-    }
+    const [state, setState] = useState(false);
+
+    useEffect( () => {
+        setTimeout(function() {
+            setState(true)
+        }, 2000)
+    })
+
+
     return ( 
         <div className = "home-main">
             <body>
@@ -54,6 +60,10 @@ const Home = () => {
                 <path d="M1067.09 48.5938C1065.12 48.2656 1062.98 48.1016 1060.69 48.1016C1052.16 48.1016 1046.37 51.7344 1043.32 59V113H1030.31V36.9219H1042.97L1043.18 45.7109C1047.45 38.9141 1053.49 35.5156 1061.32 35.5156C1063.85 35.5156 1065.77 35.8438 1067.09 36.5V48.5938Z" stroke="white" stroke-width="10" mask="url(#path-1-outside-1)"/>
             </svg>
 
+            <div className = {state ? "final-main-prompt" : "final-main-prompt-hidden"}>
+                <img src = {image} alt = "Covid-19 Tracker"></img>
+            </div>
+
             <div className = "start-main" onClick = {handleClick}>
                 <div className = "start-text">
                     <h5>Get Started</h5>
@@ -63,6 +73,8 @@ const Home = () => {
             <video autoPlay muted loop className="background-main">
                 <source src={video} type="video/mp4" />
             </video>
+
+            <i class="arrow right-one"></i>
 
             </body>
 

@@ -24,7 +24,6 @@ const Legend = ({legendItems}) => {
             height: "8vh",
             fontWeight: "bolder",
             fontSize: "1.5em",
-
           }}
         >
           <span>{item.title}</span>

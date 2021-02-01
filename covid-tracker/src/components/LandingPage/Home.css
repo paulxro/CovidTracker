@@ -16,7 +16,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+    z-index: 1;
 }
 
 .prompt-main path:nth-child(2){
@@ -104,7 +104,7 @@
 .start-main{
     z-index: 5;
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #0062ff;
@@ -112,6 +112,7 @@
     padding-left: 4vh;
     padding-right: 4vh;
     cursor: pointer;
+    border-radius: 50px;
 }
 
 .start-main:hover{
@@ -126,5 +127,38 @@
 
 .background-main{
     width: 100%;
-    z-index: 0;
+    top: 0%;
 }
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    
+    left: 50%;
+    z-index: 200;
+    transform: rotate(90deg);
+}
+
+.right-one{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(225deg);
+    top: 69%;
+}
+
+.final-main-prompt{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -47%);
+    transition: all 0.2s ease-in;
+}
+
+.final-main-prompt-hidden{
+    display: none;
+    transition: all 0.2s ease-in;
+}
+

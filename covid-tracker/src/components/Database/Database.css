@@ -11,7 +11,7 @@
     min-width: 400px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
     margin-left: auto;
     margin-right: auto;
 }
@@ -42,9 +42,27 @@
     border-bottom: 2px solid rgb(91, 77, 110);
 }
 
-.country-table tbody tr.active-row {
-    font-weight: bold;
-    color: red;
 
+.top-button{
+    background-color: rgb(91, 77, 110);
+    margin: auto;
+    width: 10%;
+    padding-top: 15px;
+    bottom: 1vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 5px;
 }
 
+.top-button-text {
+    justify-content: center;
+    align-items: center;
+    color: lightgray;
+}
+
+.top-button:hover{
+    background-color: rgb(95, 84, 109);
+    cursor: pointer;
+}
