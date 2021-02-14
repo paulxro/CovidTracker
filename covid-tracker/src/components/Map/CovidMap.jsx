@@ -8,12 +8,16 @@ const CovidMap = ({ countries }) => {
 
     const [currentCountry, setCurrentCountry] = useState(null);
 
+    // import react-leaflet above
+
     const mapStyle = {
         fillColor: "white",
         weight: 1,
         color: "black",
         fillOpacity: 1,
     };
+
+    // built-in function allowing for user interaction of each country "feature" on the map
 
     const onEachCountry = (country, layer) => {
         layer.options.fillColor = country.properties.color;
@@ -24,9 +28,11 @@ const CovidMap = ({ countries }) => {
         });
     };
 
+    // implementation of map in html to create interactive map
+
     return (
         <div>
-            <MapContainer style={{height: "85vh"}} zoom = {2} center = {[20, 100]}>
+            <MapContainer style={{height: "85vh"}} zoom = {3} center = {[50, 10]}>
                 <GeoJSON 
                     style={mapStyle} 
                     data={countries} 

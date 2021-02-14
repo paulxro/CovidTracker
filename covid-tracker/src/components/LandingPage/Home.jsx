@@ -20,7 +20,6 @@ const Home = () => {
         }, 2000)
     })
 
-
     return ( 
         <div className = "home-main">
             <body>
@@ -60,6 +59,9 @@ const Home = () => {
                 <path d="M1067.09 48.5938C1065.12 48.2656 1062.98 48.1016 1060.69 48.1016C1052.16 48.1016 1046.37 51.7344 1043.32 59V113H1030.31V36.9219H1042.97L1043.18 45.7109C1047.45 38.9141 1053.49 35.5156 1061.32 35.5156C1063.85 35.5156 1065.77 35.8438 1067.09 36.5V48.5938Z" stroke="white" stroke-width="10" mask="url(#path-1-outside-1)"/>
             </svg>
 
+            {/* Example of some home page html code (background image and start button) */}
+            {/* Allows for easier user interaction and manipulation */}
+
             <div className = {state ? "final-main-prompt" : "final-main-prompt-hidden"}>
                 <img src = {image} alt = "Covid-19 Tracker"></img>
             </div>
@@ -78,8 +80,10 @@ const Home = () => {
 
             </body>
 
-            
+            {/* End html example */}
         </div>
+
+        
      );
 }
  

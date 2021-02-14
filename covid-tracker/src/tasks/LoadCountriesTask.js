@@ -5,18 +5,28 @@ import legendItems from '../entities/LegendItems';
 class LoadCountriesTask{
     dataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv';
     
+    // data is scraped from above csv
+    
     setState = null;
     mapCountries = features;
     
+    // papaparse used for information scraping
+
     load = (setState) => {
         this.setState = setState;
         papa.parse(this.dataUrl, {
             download: true,
             header: true,
-            complete: (result) => this.#processCovidData(result.data),
+            complete: (result) => this.#processCovidData(result.data), // further pass data
         });
     };
 
+    // method (function) used to navigate through the scraped data for necessary information
+    // maps CSV data by country code (for identification) such that 
+    //                  
+    //              country.property = data.property
+    //
+    
     #processCovidData = (covidCountries) => {
         for(let i = 0; i < this.mapCountries.length; i++){
             const mapCountry = this.mapCountries[i];

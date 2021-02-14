@@ -4,12 +4,17 @@ import { Button } from './Button';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
+
+// main navbar class is declared with one method (handleClick) and one instance variable (state)
+
 class Navbar extends Component{
     state = { clicked: false }
 
     handleClick = () => {
         this.setState({ clicked : !this.state.clicked })
-    }
+    } 
+
+    // navbar html below
 
     render (){
         return(

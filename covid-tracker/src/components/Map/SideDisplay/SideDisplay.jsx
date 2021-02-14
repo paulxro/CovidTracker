@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
 import './SideDisplay.css';
 
+// sideDisplay class is declared with one parameter, and multiple instance variable / methods
+// used for the map side display to display country data
+
 const SideDisplay = ({country}) => {
 
+    // instance variables (currentCountry, menuVisibility)
     const [currentCountry, setCountry] = useState(country);
     const [menuVisibility, setMenuVisibility] = useState(true);
 
+    // methods (handleClick, numberWithCommas)
+    
     const handleClick = () => {
         setCountry(country);
         setMenuVisibility(!menuVisibility);
@@ -27,6 +33,8 @@ const SideDisplay = ({country}) => {
             x = x.replace(pattern, "$1, $2");
         return x;
     }
+
+    //html code below
 
 
     
